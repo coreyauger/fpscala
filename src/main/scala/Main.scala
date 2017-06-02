@@ -26,6 +26,17 @@ object Main extends App {
   val test = None
   println(test.getOrElse("55"))
   println(test.filter( _ => true))
+
+
+  val o0 = Some(2)
+  val n0 = None
+
+  println(s"Option ${o0.map( _ * 2 )}")
+  println(s"Option ${n0.map( (a:Int) => { a*2} )}")
+
+  println(s"Option ${o0.filter( (a) => a == 2 )}")
+  println(s"Option ${o0.filter( (a) => a == 3 )}")
+
  // println("map2:" + Tree.maximum(t2))
   /*
   println(Ex.hasSubsequence(List(1,2,3,4),List(1,2,4)))

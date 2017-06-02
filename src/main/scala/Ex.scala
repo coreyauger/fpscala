@@ -1,5 +1,8 @@
 
 import scala.List._
+import fpscala.Option
+
+import scala.{Option => _, Either => _, _}
 
 object Ex{
 
@@ -25,4 +28,11 @@ object Ex{
       else hasSubsequence(as.tail, sub)
     }
   }
+
+  def mean(xs: Seq[Double]): Option[Double] =
+    if (xs.isEmpty) fpscala.None
+    else fpscala.Some(xs.sum / xs.length)
+
+  def variance(xs: Seq[Double]): Option[Double] =
+    mean(xs) flatMap (m => mean(xs.map(x => math.pow(x - m, 2))))
 }
