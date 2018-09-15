@@ -49,12 +49,14 @@ object List {
     (xs,ys) match{
       case (Nil,Nil) => Nil
       case (Cons(a,as),Cons(b,bs)) => Cons(a+b,addAdj(as,bs))
+      case _ => Nil
     }
 
   def zipWith[A,B](xs:List[A],ys:List[A])(f: (A,A) => B):List[B] =
     (xs,ys) match{
       case (Nil,Nil) => Nil:List[B]
       case (Cons(a,as),Cons(b,bs)) => Cons(f(a,b),zipWith(as,bs)(f))
+      case _ => Nil
     }
 
   def append[A](xs:List[A], ys:List[A]):List[A] =
